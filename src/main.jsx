@@ -37,11 +37,15 @@ const router = createBrowserRouter([
   }
 ]);
 
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import theme from '../theme.js'
 
 createRoot(document.getElementById('root')).render(
-  <ChakraProvider>
+  <StrictMode>
+  <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+  <ChakraProvider theme={theme}>
       <RouterProvider router={router} />
   </ChakraProvider>
+  </StrictMode>
 
 )
