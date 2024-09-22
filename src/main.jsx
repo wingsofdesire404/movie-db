@@ -12,17 +12,29 @@ import './index.css'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
-  },
+    element: <App/>,
+    children: [
+      {
+        path: "/",
+        element: <div> Home</div>
+      }, 
+
+      {
+        path: "/movies",
+        element: <div> Movies</div>
+      },
+
+      {
+        path: "/shows",
+        element: <div> Shows</div>
+      },
+
+      {
+        path: "/search",
+        element: <div> Search</div>
+      },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
