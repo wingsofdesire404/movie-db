@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { Children } from 'react'
+import Navbar from './Navbar'
+import PropTypes from 'prop-types'
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
-    <div>Layout</div>
+    <>
+      <Navbar/>
+      <main>{children}</main>
+    </>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
